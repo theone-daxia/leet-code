@@ -1,5 +1,3 @@
-<?php
-
 /**
  * 两数之和
  *
@@ -11,14 +9,16 @@
  * 链接：https://leetcode-cn.com/problems/two-sum
  */
 
-function twoSum($nums, $target)
-{
-    $map = [];
-    foreach ($nums as $index => $num) {
-        if (array_key_exists($target - $num, $map)) {
-            return [$map[$target - $num], $index];
+func twoSum(nums []int, target int) []int {
+    res := []int{}
+    mapTmp := map[int]int{}
+    for k, v := range nums {
+        index, ok := mapTmp[target - v]
+        if ok {
+            res = []int{k, index}
+            break
         }
-        $map[$num] = $index;
+        mapTmp[v] = k
     }
-    return [];
+    return res
 }
