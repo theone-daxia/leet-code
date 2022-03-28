@@ -27,6 +27,7 @@
 class Solution1 {
 
     /**
+     * 递归
      * @param TreeNode $root
      * @return Integer[]
      */
@@ -44,19 +45,21 @@ class Solution1 {
 
 class Solution2 {
 
-    public $res = [];
-
     /**
+     * 迭代
      * @param TreeNode $root
      * @return Integer[]
      */
     function inorderTraversal($root) {
-        if ($root == null) {
-            return $this->res;
-        }
-        $this->inorderTraversal($root->left);
-        $this->res[] = $root->val;
-        $this->inorderTraversal($root->right);
-        return $this->res;
     }
 }
+
+/**
+ * 二叉树有深度遍历和广度遍历，深度遍历包含：前序、中序、后序三种，广度遍历即为层序遍历。
+ *
+ * 前序：根结点 -> 左子树 -> 右子树
+ * 中序：左子树 -> 根结点 -> 右子树
+ * 后序：左子树 -> 右子树 -> 根结点
+ *
+ * 即根结点在前，为前序；根结点在中，为中序；根结点在后，为后序。
+ */
